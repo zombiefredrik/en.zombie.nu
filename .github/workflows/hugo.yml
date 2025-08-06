@@ -1,0 +1,30 @@
+# .github/workflows/hugo.yml
+name: Build Hugo Site
+on:
+    push:
+        branches: [main]
+        paths: ['website/content/**', 'website/config/**']
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  submodules: true
+
+            - name: Setup Hugo
+              uses: peaceiris/actions-hugo@v2
+              with:
+                  hugo-version: 'latest'
+
+            - name: Build
+              run: cd website && hugo --minify
+
+            - name: Commit and push generated site
+              run: |
+                  git config user.name "GitHub Actions"
+                  git config user.email "actions@github.com"
+                  git add website/public/
+                  git commit -m "Auto-build: $(date)" || exit 0
+                  git push

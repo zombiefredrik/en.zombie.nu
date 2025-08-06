@@ -13,3 +13,18 @@
 # Add below lines to exclude OS settings and caches
 .trash/
 .DS_Store
+
+# Hugo build files (vi VILL ha public/ i Git för servern)
+website/.hugo_build.lock
+website/resources/
+
+# Node modules om Hugo-tema har sådana
+website/node_modules/
+
+# Lokala Hugo-drafts och temp-filer
+website/content/**/.DS_Store
+
+# Backup-filer
+*.bak
+*.tmp
+*~

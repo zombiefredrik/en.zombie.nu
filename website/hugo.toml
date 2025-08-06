@@ -1,0 +1,9 @@
+baseURL = 'https://en.zombie.nu/'
+languageCode = 'sv-SE'
+title = 'en.zombie.nu'
+theme = "black-light"
+pagination.pagerSize = 1
+
+[params]
+  sitename = "zombieFredrik"
+  disableWebFonts = false
